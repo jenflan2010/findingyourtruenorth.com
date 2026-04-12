@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/lifef/Downloads/index%20(8).html#about -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finding Your True North | A New Approach to Mental Wellbeing</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1614;
+    --warm-white: #faf7f2;
+    --parchment: #f0ead8;
+    --sage: #7a8c6e;
+    --deep-sage: #4a5c3e;
+    --terracotta: #b5654a;
+    --gold: #c9a84c;
+    --mist: #e8e2d4;
+    --body-font: 'DM Sans', sans-serif;
+    --display-font: 'Cormorant Garamond', serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--warm-white);
+    color: var(--ink);
+    font-family: var(--body-font);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .nav-logo {
+    font-family: var(--display-font);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--sage);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .nav-links a:hover {
+    opacity: 1;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  .hero-title {
+    font-family: var(--display-font);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink);
+    opacity: 0.75;
+    max-width: 460px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+    opacity: 0;
+  }
+
+  .hero-subtitle.visible {
+    opacity: 0.75;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 360px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--deep-sage);
+    color: var(--warm-white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: var(--body-font);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--sage);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 17px 40px;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    border: 1px solid var(--mist);
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: var(--body-font);
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    width: 100%;
+    height: 100%;
+    background: var(--parchment);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .compass-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 1.1s;
+  }
+
+  .compass-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(74, 92, 62, 0.2);
+    animation: rotate 40s linear infinite;
+  }
+
+  .compass-ring:nth-child(2) {
+    inset: 20px;
+    border-color: rgba(74, 92, 62, 0.12);
+    animation-duration: 60s;
+    animation-direction: reverse;
+  }
+
+  .compass-ring:nth-child(3) {
+    inset: 40px;
+    border-color: rgba(181, 101, 74, 0.15);
+    animation-duration: 80s;
+  }
+
+  .compass-center {
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(201, 168, 76, 0.15), rgba(74, 92, 62, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .compass-needle {
+    width: 2px;
+    height: 110px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: needleWaver 6s ease-in-out infinite;
+    transform-origin: center;
+    filter: drop-shadow(0 2px 8px rgba(181, 101, 74, 0.3));
+  }
+
+  .needle-north {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 58px solid var(--terracotta);
+    margin-bottom: -2px;
+  }
+
+  .needle-south {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 58px solid rgba(74, 92, 62, 0.35);
+    margin-top: -2px;
+  }
+
+  .needle-pivot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+    z-index: 2;
+  }
+
+  .compass-n {
+    position: absolute;
+    top: 68px;
+    font-family: var(--display-font);
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .cardinal {
+    position: absolute;
+    font-family: var(--display-font);
+    font-size: 0.8rem;
+    color: var(--sage);
+    opacity: 0.55;
+    letter-spacing: 0.1em;
+  }
+
+  .cardinal.s { bottom: 68px; }
+  .cardinal.e { right: 68px; top: 50%; transform: translateY(-50%); }
+  .cardinal.w { left: 68px; top: 50%; transform: translateY(-50%); }
+
+  .compass-tick {
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: var(--sage);
+    opacity: 0.2;
+    transform-origin: center 190px;
+  }
+
+  .compass-degree-ring {
+    position: absolute;
+    inset: 55px;
+    border-radius: 50%;
+  }
+
+  .hero-quote {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+    right: 48px;
+    font-family: var(--display-font);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    opacity: 0.5;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.4s;
+  }
+
+  /* INTRO BAND */
+  .intro-band {
+    background: var(--deep-sage);
+    color: var(--warm-white);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-band-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-family: var(--body-font);
+  }
+
+  .intro-band-text {
+    font-family: var(--display-font);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .intro-band-text strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .about-left {
+    position: sticky;
+    top: 120px;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--display-font);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 32px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .section-body {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    opacity: 0.75;
+    margin-bottom: 24px;
+  }
+
+  .credentials {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--mist);
+  }
+
+  .credential-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .credential-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .credential-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    opacity: 0.7;
+  }
+
+  .about-right {
+    padding-top: 16px;
+  }
+
+  .pillar {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .pillar:first-child {
+    border-top: 1px solid var(--mist);
+  }
+
+  .pillar-number {
+    font-family: var(--display-font);
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .pillar-title {
+    font-family: var(--display-font);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .pillar-body {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    opacity: 0.65;
+  }
+
+  /* EBOOK */
+  .ebook {
+    background: var(--parchment);
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .ebook-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .book-mockup {
+    width: 280px;
+    height: 380px;
+    background: var(--deep-sage);
+    position: relative;
+    box-shadow: -12px 16px 48px rgba(26, 22, 20, 0.2), 0 4px 16px rgba(26, 22, 20, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 32px;
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+  }
+
+  .book-mockup:hover {
+    transform: rotate(0deg) translateY(-8px);
+  }
+
+  .book-title-text {
+    font-family: var(--display-font);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.2;
+    font-style: italic;
+  }
+
+  .book-title-text strong {
+    font-style: normal;
+    font-weight: 500;
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+    color: var(--gold);
+  }
+
+  .book-author {
+    font-size: 0.75rem;
+    color: rgba(250, 247, 242, 0.6);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: var(--body-font);
+  }
+
+  .book-spine {
+    position: absolute;
+    left: -16px;
+    top: 0;
+    bottom: 0;
+    width: 16px;
+    background: var(--sage);
+    transform: skewY(0deg);
+  }
+
+  .book-decoration {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-decoration::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(201, 168, 76, 0.5);
+    border-radius: 50%;
+  }
+
+  .ebook-content .section-title {
+    margin-bottom: 24px;
+  }
+
+  .chapter-list {
+    list-style: none;
+    margin: 32px 0 48px;
+  }
+
+  .chapter-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(26, 22, 20, 0.08);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+
+  .chapter-num {
+    font-family: var(--display-font);
+    font-size: 0.75rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* PROGRAM */
+  .program {
+    padding: 120px 80px;
+  }
+
+  .program-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 80px;
+  }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--mist);
+  }
+
+  .tier {
+    background: var(--warm-white);
+    padding: 48px 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .tier:hover {
+    transform: translateY(-4px);
+    z-index: 2;
+  }
+
+  .tier.featured {
+    background: var(--deep-sage);
+    color: var(--warm-white);
+  }
+
+  .tier-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .tier.featured .tier-label {
+    color: var(--gold);
+  }
+
+  .tier-name {
+    font-family: var(--display-font);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .tier-price {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 32px;
+  }
+
+  .tier.featured .tier-price {
+    opacity: 0.7;
+  }
+
+  .tier-features {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .tier-features li {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(26, 22, 20, 0.06);
+    opacity: 0.7;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .tier.featured .tier-features li {
+    border-bottom-color: rgba(250, 247, 242, 0.1);
+    opacity: 0.8;
+  }
+
+  .tier-features li::before {
+    content: '—';
+    color: var(--sage);
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+
+  .tier.featured .tier-features li::before {
+    color: var(--gold);
+  }
+
+  .tier .btn-primary {
+    width: 100%;
+  }
+
+  .tier .btn-secondary {
+    width: 100%;
+  }
+
+  .tier.featured .btn-secondary {
+    border-color: rgba(250, 247, 242, 0.3);
+    color: var(--warm-white);
+  }
+
+  .tier.featured .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* QUIZ CTA */
+  .quiz-cta {
+    background: var(--parchment);
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .quiz-cta-inner {
+    max-width: 560px;
+  }
+
+  .quiz-reasons {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .quiz-reason {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .quiz-reason-icon {
+    color: var(--gold);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .quiz-reason p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    opacity: 0.7;
+  }
+
+  .quiz-confidence {
+    padding: 24px 28px;
+    border-left: 2px solid var(--sage);
+    margin-bottom: 40px;
+    background: rgba(122, 140, 110, 0.06);
+  }
+
+  .quiz-confidence p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  /* QUIZ DIMENSIONS */
+  .quiz-section {
+    background: var(--ink);
+    color: var(--warm-white);
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .quiz-section .section-label {
+    color: var(--gold);
+  }
+
+  .quiz-section .section-title {
+    color: var(--warm-white);
+  }
+
+  .quiz-section .section-title em {
+    color: var(--terracotta);
+  }
+
+  .quiz-section .section-body {
+    color: rgba(250, 247, 242, 0.7);
+  }
+
+  .quiz-dimensions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .dimension {
+    padding: 28px;
+    border: 1px solid rgba(250, 247, 242, 0.1);
+    transition: border-color 0.3s;
+  }
+
+  .dimension:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+  }
+
+  .dimension-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  .dimension-title {
+    font-family: var(--display-font);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .dimension-body {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    opacity: 0.5;
+  }
+
+  /* WAITLIST */
+  .waitlist {
+    background: var(--parchment);
+    padding: 100px 80px;
+    text-align: center;
+  }
+
+  .waitlist-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .waitlist .section-title {
+    margin-bottom: 20px;
+  }
+
+  .waitlist .section-body {
+    margin-bottom: 48px;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+
+  .form-input {
+    flex: 1;
+    padding: 18px 24px;
+    border: 1px solid var(--mist);
+    border-right: none;
+    background: var(--warm-white);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-input:focus {
+    border-color: var(--sage);
+  }
+
+  .form-input::placeholder {
+    opacity: 0.4;
+  }
+
+  .form-submit {
+    padding: 18px 32px;
+    background: var(--deep-sage);
+    color: var(--warm-white);
+    border: none;
+    font-family: var(--body-font);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+
+  .form-submit:hover {
+    background: var(--sage);
+  }
+
+  .form-note {
+    font-size: 0.75rem;
+    opacity: 0.45;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--mist);
+  }
+
+  .footer-logo {
+    font-family: var(--display-font);
+    font-size: 1rem;
+    color: var(--ink);
+    opacity: 0.6;
+  }
+
+  .footer-note {
+    font-size: 0.75rem;
+    opacity: 0.4;
+    max-width: 400px;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes needleWaver {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 80px 48px; }
+    .about, .ebook, .quiz-section { grid-template-columns: 1fr; gap: 60px; }
+    .about-left { position: static; }
+    .intro-band { grid-template-columns: 1fr; gap: 32px; padding: 60px 48px; }
+    .tiers { grid-template-columns: 1fr; }
+    nav { padding: 20px 32px; }
+    .nav-links { display: none; }
+    .about, .ebook, .program, .quiz-section, .waitlist { padding: 80px 48px; }
+    footer { padding: 40px 48px; flex-direction: column; gap: 24px; text-align: center; }
+    .footer-note { text-align: center; }
+    .quiz-dimensions { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#" class="nav-logo">Finding Your <span>True North</span></a>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/lifef/Downloads/index%20(8).html#about">About</a></li>
+    <li><a href="file:///C:/Users/lifef/Downloads/index%20(8).html#ebook">Free Ebook</a></li>
+    <li><a href="file:///C:/Users/lifef/Downloads/index%20(8).html#quiz-cta">Take the Quiz</a></li>
+    <li><a href="file:///C:/Users/lifef/Downloads/index%20(8).html#program">The Program</a></li>
+    <li><a href="file:///C:/Users/lifef/Downloads/index%20(8).html#waitlist">Join Waitlist</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">A new approach to mental wellbeing</p>
+    <h1 class="hero-title">What if the ache<br>has been your<br><em>compass all along?</em></h1>
+    <p class="hero-subtitle" style="animation: fadeUp 0.8s ease forwards 0.7s;">A clinician-led platform bringing together the neuroscience of trauma, the emerging science of metabolic psychiatry, and a profound understanding of what it means to truly come home to yourself.</p>
+    <div class="hero-cta-group">
+      <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#" onclick="openQuiz();return false;" class="btn-primary">Take the Free Quiz</a>
+      <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#ebook" class="btn-secondary">Read the Free Ebook First</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="compass-container">
+        <div class="compass-ring"></div>
+        <div class="compass-ring"></div>
+        <div class="compass-ring"></div>
+        <div class="compass-center">
+          <div class="compass-needle" id="compassNeedle" style="transform: rotate(2e-40deg); animation: 6s ease-in-out 0s infinite normal none running needleWaver;">
+            <div class="needle-north"></div>
+            <div class="needle-south"></div>
+            <div class="needle-pivot"></div>
+          </div>
+          <span class="compass-n">N</span>
+          <span class="cardinal s">S</span>
+          <span class="cardinal e">E</span>
+          <span class="cardinal w">W</span>
+        </div>
+      </div>
+      <p class="hero-quote" style="animation: fadeUp 0.8s ease forwards 1.4s;">"The ache for something more is not a flaw in the design. It is the design, pointing you home."</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<div class="intro-band reveal visible">
+  <span class="intro-band-label">The Foundation</span>
+  <p class="intro-band-text">You are not broken. Your nervous system has been doing its best under conditions it was never designed for. <strong>Understanding that is where healing actually starts.</strong></p>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left reveal visible">
+    <span class="section-label">About the Platform</span>
+    <h2 class="section-title">A wider map for <em>a complex problem</em></h2>
+    <p class="section-body">Most approaches to mental health address only part of the picture. Finding Your True North brings together what the evidence across multiple fields is telling us: that anxiety and depression have causes that are biological, relational, metabolic, and deeply human all at once.</p>
+    <p class="section-body">This platform was built by a clinician with over twenty years of experience, grounded in the research, and shaped by the consistent truth that the most powerful moment in any healing journey is the one where a person finally stops blaming themselves.</p>
+    <div class="credentials">
+      <div class="credential-item">
+        <div class="credential-dot"></div>
+        <span class="credential-text">Registered Psychologist with 20+ years of clinical experience</span>
+      </div>
+      <div class="credential-item">
+        <div class="credential-dot"></div>
+        <span class="credential-text">EMDR Clinician of 14 years, trained in complex trauma</span>
+      </div>
+      <div class="credential-item">
+        <div class="credential-dot"></div>
+        <span class="credential-text">Completed Georgia Ede's clinical training program: Ketogenic Diets for Mental Health</span>
+      </div>
+      <div class="credential-item">
+        <div class="credential-dot"></div>
+        <span class="credential-text">Author of Reverse Engineering Heaven: a clinical and personal exploration of consciousness, suffering, and what we are built for</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="pillar reveal visible">
+      <span class="pillar-number">01</span>
+      <h3 class="pillar-title">The Nervous System</h3>
+      <p class="pillar-body">Trauma is not primarily a memory problem. It is a body problem. Understanding how the nervous system holds experience and how it can be helped to release it is the foundation of everything this platform offers.</p>
+    </div>
+    <div class="pillar reveal visible">
+      <span class="pillar-number">02</span>
+      <h3 class="pillar-title">Metabolic Psychiatry</h3>
+      <p class="pillar-body">The brain is a physical organ with physical requirements. The emerging science of metabolic psychiatry is showing us that what we eat directly shapes how we feel, in ways the mental health field is only beginning to fully appreciate.</p>
+    </div>
+    <div class="pillar reveal visible">
+      <span class="pillar-number">03</span>
+      <h3 class="pillar-title">Lifestyle as Medicine</h3>
+      <p class="pillar-body">Sleep, movement, sunlight, and connection are not peripheral self-care habits. They are the biological floor of mental health, and the evidence for their impact is stronger than most people realise.</p>
+    </div>
+    <div class="pillar reveal visible">
+      <span class="pillar-number">04</span>
+      <h3 class="pillar-title">Meaning and Coherence</h3>
+      <p class="pillar-body">The ache for purpose, connection, and a felt sense of belonging in your own life is not neurotic restlessness. It is a signal from a system that knows what it is built for. This platform takes that signal seriously.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EBOOK -->
+<section class="ebook" id="ebook">
+  <div class="ebook-visual reveal visible">
+    <div class="book-mockup">
+      <div class="book-spine"></div>
+      <div>
+        <p class="book-title-text">The Mental Health Puzzle<strong>What Nobody Told You</strong></p>
+      </div>
+      <div>
+        <div class="book-decoration"></div>
+        <p class="book-author">Finding Your True North</p>
+      </div>
+    </div>
+  </div>
+  <div class="ebook-content reveal visible">
+    <span class="section-label">Free Resource</span>
+    <h2 class="section-title">The ebook that starts <em>everything</em></h2>
+    <p class="section-body">A comprehensive, evidence-based guide to understanding anxiety and depression through a wider lens. Written in plain language with genuine clinical depth, it covers what the research says about causes and treatments that most people have never encountered.</p>
+    <ul class="chapter-list">
+      <li><span class="chapter-num">01</span>Why so many people are struggling and what the standard story gets wrong</li>
+      <li><span class="chapter-num">02</span>The real causes of anxiety and depression including trauma, nervous system dysregulation, and metabolic health</li>
+      <li><span class="chapter-num">03</span>Food, the brain, and the connection the mental health field has been slow to make</li>
+      <li><span class="chapter-num">04</span>Lifestyle factors with stronger evidence than most people realise</li>
+      <li><span class="chapter-num">05</span>What thousands of near-death experiences tell us about what we are built for</li>
+      <li><span class="chapter-num">06</span>The therapies that work and why, including a clear guide to finding your fit</li>
+      <li><span class="chapter-num">07</span>Your path forward and how the program continues from here</li>
+    </ul>
+    <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#waitlist" class="btn-primary">Get the Free Ebook</a>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="program-header reveal visible">
+    <span class="section-label">The Program</span>
+    <h2 class="section-title">Three ways to go <em>deeper</em></h2>
+    <p class="section-body">From a free personalised assessment to a fully tailored ongoing program with daily journalling and intelligent referral support. Each tier delivers genuine standalone value.</p>
+  </div>
+  <div class="tiers reveal visible">
+    <div class="tier">
+      <span class="tier-label">Start Here</span>
+      <h3 class="tier-name">The Assessment</h3>
+      <p class="tier-price">Free</p>
+      <ul class="tier-features">
+        <li>20-minute personalised quiz</li>
+        <li>Assessment across four dimensions of wellbeing</li>
+        <li>Personalised report with tailored recommendations</li>
+        <li>Safety screening with referral pathways where needed</li>
+        <li>Bridge to the full program</li>
+      </ul>
+      <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#waitlist" class="btn-secondary">Join Waitlist</a>
+    </div>
+    <div class="tier featured">
+      <span class="tier-label">Most Popular</span>
+      <h3 class="tier-name">The Program</h3>
+      <p class="tier-price">14-day free trial, then from $27/month. Cancel anytime.</p>
+      <ul class="tier-features">
+        <li>Full personalised program across all four dimensions</li>
+        <li>Nightly journalling prompts that evolve with you</li>
+        <li>Intelligent feedback loop that refines recommendations over time</li>
+        <li>Access to all platform content and resources</li>
+        <li>Personalised therapist referral when the program suggests it is time</li>
+        <li>New content added regularly</li>
+      </ul>
+      <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#waitlist" class="btn-secondary">Join Waitlist</a>
+    </div>
+    <div class="tier">
+      <span class="tier-label">One-off Option</span>
+      <h3 class="tier-name">The Starter</h3>
+      <p class="tier-price">Single payment. No subscription required.</p>
+      <ul class="tier-features">
+        <li>Full personalised program report</li>
+        <li>Structured starting point across your priority dimensions</li>
+        <li>Evidence-based recommendations tailored to your profile</li>
+        <li>No ongoing commitment</li>
+        <li>Option to upgrade to full program at any time</li>
+      </ul>
+      <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#waitlist" class="btn-secondary">Join Waitlist</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ CTA -->
+<section class="quiz-cta" id="quiz-cta">
+  <div class="quiz-cta-inner reveal visible">
+    <span class="section-label">The Assessment</span>
+    <h2 class="section-title">Not sure where to start?<br><em>The quiz will show you.</em></h2>
+    <p class="section-body">In around ten minutes the quiz maps your experience across four dimensions: your nervous system and history, your body and brain foundations, your relationships and environment, and your sense of meaning and purpose.</p>
+    <p class="section-body">You will receive an immediate summary of your profile, enough to feel genuinely understood, and then enter your email to receive your full personalised report. The program options follow naturally from there.</p>
+    <p class="section-body">We recommend reading the free ebook first. It will deepen your self-understanding and make your quiz answers more accurate. But if you are ready to act now, the quiz is the place to start.</p>
+    <div class="quiz-reasons">
+      <div class="quiz-reason">
+        <span class="quiz-reason-icon">—</span>
+        <p>Understand why you have been struggling in a way that finally makes sense</p>
+      </div>
+      <div class="quiz-reason">
+        <span class="quiz-reason-icon">—</span>
+        <p>Receive recommendations tailored to your nervous system, not a generic program</p>
+      </div>
+      <div class="quiz-reason">
+        <span class="quiz-reason-icon">—</span>
+        <p>Find out which therapeutic approaches are most likely to suit your history</p>
+      </div>
+      <div class="quiz-reason">
+        <span class="quiz-reason-icon">—</span>
+        <p>Take the first honest step toward finding your true north</p>
+      </div>
+    </div>
+    <div class="quiz-confidence">
+      <p>Everything you share is completely confidential. Your answers are not visible to anyone, including the people who built this platform. They are used only to generate your personalised report.</p>
+    </div>
+    <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#" onclick="openQuiz();return false;" class="btn-primary">Take the Quiz</a>
+  </div>
+</section>
+  <div class="reveal visible">
+    <span class="section-label">Four Dimensions</span>
+    <h2 class="section-title">A map built around <em>where you actually are</em></h2>
+    <p class="section-body" style="color: rgba(250,247,242,0.7); margin-bottom: 16px;">Most programs offer generic recommendations. This one is built around your specific profile across four dimensions of human wellbeing, because the path home looks different for everyone.</p>
+    <p class="section-body" style="color: rgba(250,247,242,0.7); margin-bottom: 40px;">Your summary results are immediate. Your full personalised report arrives in your inbox. The program options follow from there, at your pace, on your terms.</p>
+    <a href="file:///C:/Users/lifef/Downloads/index%20(8).html#" onclick="openQuiz();return false;" class="btn-primary">Take the Quiz</a>
+  </div>
+  <div class="quiz-dimensions reveal visible">
+    <div class="dimension">
+      <svg class="dimension-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="16" cy="16" r="12"></circle>
+        <path d="M16 8v8l4 4"></path>
+      </svg>
+      <h4 class="dimension-title">Your Nervous System</h4>
+      <p class="dimension-body">How your system has been shaped by experience and what it most needs to find its way back to safety.</p>
+    </div>
+    <div class="dimension">
+      <svg class="dimension-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4z"></path>
+        <path d="M16 12v4M12 16h8"></path>
+      </svg>
+      <h4 class="dimension-title">Brain and Body Foundations</h4>
+      <p class="dimension-body">The metabolic and lifestyle factors that directly shape how your brain functions and how you feel.</p>
+    </div>
+    <div class="dimension">
+      <svg class="dimension-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M20 8c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4zM8 28v-2c0-4.418 3.582-8 8-8s8 3.582 8 8v2"></path>
+      </svg>
+      <h4 class="dimension-title">Relationships and Environment</h4>
+      <p class="dimension-body">The relational safety and genuine connection your nervous system requires to heal and flourish.</p>
+    </div>
+    <div class="dimension">
+      <svg class="dimension-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M16 4l2.4 7.4H26l-6.2 4.5 2.4 7.4L16 19l-6.2 4.3 2.4-7.4L6 11.4h7.6z"></path>
+      </svg>
+      <h4 class="dimension-title">Meaning and Coherence</h4>
+      <p class="dimension-body">Your relationship with purpose, connection, and the deeper sense of being aligned with what you most deeply value.</p>
+    </div>
+  </div>
+
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-inner reveal visible">
+    <span class="section-label">Coming Soon</span>
+    <h2 class="section-title">Be the first to <em>find your way</em></h2>
+    <p class="section-body">The platform launches soon. Join the waitlist to receive the free ebook immediately and be notified when the full program opens. No spam. Just the things that matter.</p>
+    <div class="form-group">
+      <input type="email" class="form-input" placeholder="Your email address">
+      <button class="form-submit" onclick="handleSubmit()">Join Waitlist</button>
+    </div>
+    <p class="form-note">By joining you will receive the free ebook and occasional updates about the platform launch. You can unsubscribe at any time. Your information is never shared with third parties.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Finding Your True North</span>
+  <p class="footer-note">This platform is a psychoeducational and lifestyle support program. It does not replace professional mental health care. Where your assessment suggests professional support is needed, the program will say so clearly and provide appropriate referral pathways.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Compass scroll wobble
+  const needle = document.getElementById('compassNeedle');
+  let lastScrollY = window.scrollY;
+  let currentRotation = 0;
+  let targetRotation = 0;
+  let velocity = 0;
+  let animating = false;
+
+  function animateNeedle() {
+    const diff = targetRotation - currentRotation;
+    velocity = velocity * 0.88 + diff * 0.04;
+    currentRotation += velocity;
+
+    needle.style.transform = `rotate(${currentRotation}deg)`;
+    needle.style.animation = 'none';
+
+    if (Math.abs(velocity) > 0.01 || Math.abs(diff) > 0.01) {
+      requestAnimationFrame(animateNeedle);
+    } else {
+      currentRotation = targetRotation;
+      needle.style.transform = `rotate(${currentRotation}deg)`;
+      needle.style.animation = 'needleWaver 6s ease-in-out infinite';
+      animating = false;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const scrollDelta = window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
+
+    targetRotation += scrollDelta * 0.15;
+    targetRotation = Math.max(-20, Math.min(20, targetRotation));
+
+    setTimeout(() => {
+      targetRotation = targetRotation * 0.1;
+    }, 800);
+
+    if (!animating) {
+      animating = true;
+      requestAnimationFrame(animateNeedle);
+    }
+  }, { passive: true });
+
+  // Waitlist form
+  function handleSubmit() {
+    const input = document.querySelector('.form-input');
+    const btn = document.querySelector('.form-submit');
+    if (input.value && input.value.includes('@')) {
+      btn.textContent = 'You\'re on the list';
+      btn.style.background = 'var(--sage)';
+      input.value = '';
+      input.placeholder = 'Thank you. The ebook is on its way.';
+    } else {
+      input.style.borderColor = 'var(--terracotta)';
+      setTimeout(() => input.style.borderColor = 'var(--mist)', 2000);
+    }
+  }
+
+  // Enter key on form
+  document.querySelector('.form-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSubmit();
+  });
+</script>
+
+
+
+
+<!-- QUIZ MODAL -->
+<div id="quiz-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;overflow-y:auto;">
+  <div style="background:#faf9f7;max-width:700px;margin:2rem auto;border-radius:12px;position:relative;min-height:90vh;">
+    <button onclick="closeQuiz()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:24px;cursor:pointer;color:#888;z-index:10000;line-height:1;">✕</button>
+    <div style="padding:1rem;">
+<div class="quiz-wrap">
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+
+  <!-- WELCOME -->
+  <div class="screen active" id="s-welcome">
+    <svg class="welcome-icon compass" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="24" stroke="#1D9E75" stroke-width="1.5"></circle>
+      <polygon points="26,7 29.5,26 26,30 22.5,26" fill="#1D9E75"></polygon>
+      <polygon points="26,45 22.5,26 26,22 29.5,26" fill="#9FE1CB"></polygon>
+      <circle cx="26" cy="26" r="3" fill="#085041"></circle>
+    </svg>
+    <p class="section-label">Finding your true north</p>
+    <h1 class="welcome-title">Before you begin, please read this carefully.</h1>
+    <p class="welcome-body">Everything you share in this quiz is completely confidential. Your answers are not visible to anyone, including the people who built this platform. They are used only to generate your personalised report.<br><br>The one exception is if your answers suggest you may be at risk of harm to yourself or others. In that situation the platform will not share your information with anyone, but it will ask you to pause and provide you with resources and referral pathways appropriate to where you live. This is not a judgment. It is the platform doing what it promised: paying attention and telling the truth about what is needed.<br><br>This platform is a psychoeducational and lifestyle support program. It is not a therapy service and does not replace professional mental health care. Where your answers suggest that professional support is what you most need right now, the program will say so clearly and help you find it.<br><br>Take your time. Answer as honestly as you can. There are no wrong answers here.</p>
+    <button class="btn btn-primary" onclick="quizGoTo(&#39;s-q1&#39;)">Begin the quiz</button>
+  </div>
+
+  <!-- CRISIS -->
+  <div class="screen" id="s-crisis">
+    <h2 class="question-title" style="margin-bottom:1rem">Thank you for being honest. That takes courage.</h2>
+    <p class="welcome-body" style="margin-bottom:1.25rem">What you are experiencing matters, and you deserve proper support right now. This program is not the right starting point for where you are today, and we want to make sure you get what you actually need.</p>
+    <div class="crisis-box">
+      <p class="crisis-title">Please reach out to one of the following:</p>
+      <div class="crisis-body">
+        <div class="crisis-region"><strong>Australia</strong>Lifeline <a href="https://www.lifeline.org.au/">13 11 14</a> &nbsp;·&nbsp; Beyond Blue <a href="https://www.beyondblue.org.au/">1300 22 4636</a> &nbsp;·&nbsp; Your local GP</div>
+        <div class="crisis-region"><strong>United Kingdom</strong>Samaritans <a href="https://www.samaritans.org/">116 123</a> &nbsp;·&nbsp; <a href="https://www.nhs.uk/mental-health">NHS urgent mental health</a></div>
+        <div class="crisis-region"><strong>United States</strong>988 Suicide and Crisis Lifeline — call or text <a href="https://988lifeline.org/">988</a></div>
+        <div class="crisis-region"><strong>Canada</strong>Talk Suicide Canada <a href="https://talksuicide.ca/">1-833-456-4566</a></div>
+        <div class="crisis-region"><strong>New Zealand</strong>Lifeline Aotearoa <a href="https://www.lifeline.org.nz/">0800 543 354</a></div>
+      </div>
+    </div>
+    <p class="welcome-body">If you are in immediate danger please call your local emergency services.<br><br>When you are in a more supported place, this program will be here for you.</p>
+  </div>
+
+  <!-- S1 Q1 -->
+  <div class="screen" id="s-q1">
+    <p class="section-label">Section 1 — a little about you</p>
+    <p class="question-title">Where do you live?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;Australia&#39;)">Australia</button>
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;United Kingdom&#39;)">United Kingdom</button>
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;United States&#39;)">United States</button>
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;Canada&#39;)">Canada</button>
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;New Zealand&#39;)">New Zealand</button>
+      <button class="option" onclick="pick(&#39;q1&#39;,this,&#39;Other&#39;)">Other</button>
+    </div>
+    <div class="nav"></div>
+  </div>
+
+  <!-- S1 Q2 -->
+  <div class="screen" id="s-q2">
+    <p class="section-label">Section 1 — a little about you</p>
+    <p class="question-title">How old are you?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q2&#39;,this,&#39;Under 18&#39;)">Under 18</button>
+      <button class="option" onclick="pick(&#39;q2&#39;,this,&#39;18 to 25&#39;)">18 to 25</button>
+      <button class="option" onclick="pick(&#39;q2&#39;,this,&#39;26 to 40&#39;)">26 to 40</button>
+      <button class="option" onclick="pick(&#39;q2&#39;,this,&#39;41 to 60&#39;)">41 to 60</button>
+      <button class="option" onclick="pick(&#39;q2&#39;,this,&#39;Over 60&#39;)">Over 60</button>
+    </div>
+    <div id="minor-note" class="minor-note">We recommend completing this quiz with the support of a trusted adult. Some program content may suggest speaking with a parent, guardian, or school counsellor.</div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q1&#39;)">Back</button></div>
+  </div>
+
+  <!-- S1 Q3 -->
+  <div class="screen" id="s-q3">
+    <p class="section-label">Section 1 — a little about you</p>
+    <p class="question-title">What brings you here today?</p>
+    <p class="multi-note">Choose as many as feel true.</p>
+    <div class="options">
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I have been struggling with anxiety</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I have been struggling with depression</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I feel disconnected from myself or my life</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I am looking for a different approach to mental health</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I read the ebook and want to go deeper</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">I am generally well but want to be better</button>
+      <button class="option" onclick="multi(&#39;q3&#39;,this)">Something else</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q2&#39;)">Back</button><button class="btn btn-primary" id="n-q3" onclick="quizGoTo(&#39;s-q4&#39;)" disabled="">Next</button></div>
+  </div>
+
+  <!-- S2 Q4 crisis screen -->
+  <div class="screen" id="s-q4">
+    <p class="section-label">Section 2 — wellbeing and safety</p>
+    <p class="question-title">Over the past two weeks, how often have you had thoughts of harming yourself or feeling that you would be better off not being here?</p>
+    <p class="question-sub">Please answer as honestly as you can.</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q4&#39;,this,&#39;Not at all&#39;)">Not at all</button>
+      <button class="option" onclick="pick(&#39;q4&#39;,this,&#39;Occasionally&#39;)">Occasionally</button>
+      <button class="option" onclick="pick(&#39;q4&#39;,this,&#39;Often&#39;)">Often</button>
+      <button class="option" onclick="pick(&#39;q4&#39;,this,&#39;Most days&#39;)">Most days</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q3&#39;)">Back</button></div>
+  </div>
+
+  <!-- S2 Q5 food -->
+  <div class="screen" id="s-q5">
+    <p class="section-label">Section 2 — wellbeing and safety</p>
+    <p class="question-title">How is your relationship with food and eating?</p>
+    <p class="question-sub">This helps us make sure the program content we generate is appropriate for you.</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q5&#39;,this,&#39;straightforward&#39;)">It feels mostly straightforward and uncomplicated</button>
+      <button class="option" onclick="pick(&#39;q5&#39;,this,&#39;sometimes complicated&#39;)">It is sometimes complicated or stressful</button>
+      <button class="option" onclick="pick(&#39;q5&#39;,this,&#39;significant struggle&#39;)">It has been, or currently is, a significant source of struggle or distress in my life</button>
+      <button class="option" onclick="pick(&#39;q5&#39;,this,&#39;prefer not to say&#39;)">I would prefer not to say</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q4&#39;)">Back</button></div>
+  </div>
+
+  <!-- FOOD NOTE -->
+  <div class="screen" id="s-food-note">
+    <p class="section-label">Section 2 — wellbeing and safety</p>
+    <p class="question-title" style="margin-bottom:1rem">A note before we continue.</p>
+    <div class="note-box">We noticed you indicated that food and eating has been a source of struggle. The program we are generating for you focuses on the other dimensions of your wellbeing and does not include any content related to food or diet.<br><br>If you would like support specifically around your relationship with food, the following services specialise in exactly that:<br><br><strong>Australia:</strong> The Butterfly Foundation — <a href="https://butterfly.org.au/">1800 33 4673</a><br><strong>United States:</strong> Alliance for Eating Disorders — <a href="https://www.allianceforeatingdisorders.com/">1-866-662-1235</a><br><strong>United Kingdom:</strong> Beat Eating Disorders — <a href="https://www.beateatingdisorders.org.uk/">0808 801 0677</a><br><strong>Canada:</strong> NEDIC — <a href="https://nedic.ca/">1-866-633-4220</a><br><strong>New Zealand:</strong> <a href="https://www.ed.org.nz/">Eating Disorders Association of New Zealand</a></div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q5&#39;)">Back</button><button class="btn btn-primary" onclick="quizGoTo(&#39;s-q6&#39;)">Continue</button></div>
+  </div>
+
+  <!-- S3 Q6-Q11 -->
+  <div class="screen" id="s-q6">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">How often do you feel genuinely safe and at rest in your body, not just distracted or busy?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q6&#39;,this,&#39;rarely&#39;)">Rarely or never</button>
+      <button class="option" onclick="pick(&#39;q6&#39;,this,&#39;occasionally&#39;)">Occasionally</button>
+      <button class="option" onclick="pick(&#39;q6&#39;,this,&#39;fairly often&#39;)">Fairly often</button>
+      <button class="option" onclick="pick(&#39;q6&#39;,this,&#39;most of the time&#39;)">Most of the time</button>
+    </div>
+    <div class="nav"><button class="btn" id="back-q6" onclick="quizGoTo(&#39;s-q5&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q7">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">When something stressful happens, how long does it typically take your body to settle?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q7&#39;,this,&#39;days&#39;)">It can take days or it never fully settles</button>
+      <button class="option" onclick="pick(&#39;q7&#39;,this,&#39;hours&#39;)">Several hours</button>
+      <button class="option" onclick="pick(&#39;q7&#39;,this,&#39;hour&#39;)">Around an hour</button>
+      <button class="option" onclick="pick(&#39;q7&#39;,this,&#39;quickly&#39;)">Fairly quickly</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q6&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q8">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">Do you find yourself replaying past events or conversations as though they are still happening?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q8&#39;,this,&#39;very often&#39;)">Very often, it feels like I am still there</button>
+      <button class="option" onclick="pick(&#39;q8&#39;,this,&#39;sometimes&#39;)">Sometimes</button>
+      <button class="option" onclick="pick(&#39;q8&#39;,this,&#39;rarely&#39;)">Rarely</button>
+      <button class="option" onclick="pick(&#39;q8&#39;,this,&#39;almost never&#39;)">Almost never</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q7&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q9">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">Do you startle easily, feel on edge, or find it hard to relax even in safe situations?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q9&#39;,this,&#39;most of the time&#39;)">Yes, most of the time</button>
+      <button class="option" onclick="pick(&#39;q9&#39;,this,&#39;sometimes&#39;)">Sometimes</button>
+      <button class="option" onclick="pick(&#39;q9&#39;,this,&#39;occasionally&#39;)">Occasionally</button>
+      <button class="option" onclick="pick(&#39;q9&#39;,this,&#39;rarely&#39;)">Rarely</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q8&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q10">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">How would you describe your experience of your own body?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q10&#39;,this,&#39;unsafe&#39;)">It often feels unsafe, uncomfortable, or foreign</button>
+      <button class="option" onclick="pick(&#39;q10&#39;,this,&#39;sometimes uncomfortable&#39;)">It is sometimes uncomfortable</button>
+      <button class="option" onclick="pick(&#39;q10&#39;,this,&#39;generally okay&#39;)">It is generally okay</button>
+      <button class="option" onclick="pick(&#39;q10&#39;,this,&#39;safe place&#39;)">It feels like a safe and familiar place</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q9&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q11">
+    <p class="section-label">Section 3 — your nervous system and history</p>
+    <p class="question-title">Do you feel that past experiences are still significantly affecting how you feel or function today?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q11&#39;,this,&#39;significantly&#39;)">Yes, significantly</button>
+      <button class="option" onclick="pick(&#39;q11&#39;,this,&#39;somewhat&#39;)">Somewhat</button>
+      <button class="option" onclick="pick(&#39;q11&#39;,this,&#39;a little&#39;)">A little</button>
+      <button class="option" onclick="pick(&#39;q11&#39;,this,&#39;not really&#39;)">Not really</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q10&#39;)">Back</button></div>
+  </div>
+
+  <!-- S4 Q12-Q15 -->
+  <div class="screen" id="s-q12">
+    <p class="section-label">Section 4 — past therapy experience</p>
+    <p class="question-title">Have you ever seen a therapist, psychologist, counsellor, or other mental health professional?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;helpful&#39;)">Yes, and it was helpful</button>
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;partially helpful&#39;)">Yes, it was partially helpful</button>
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;did not help&#39;)">Yes, but it did not help</button>
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;negative&#39;)">Yes, and it was a negative experience</button>
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;never&#39;)">No, never</button>
+      <button class="option" onclick="pick(&#39;q12&#39;,this,&#39;wanted to&#39;)">No, but I have wanted to</button>
+    </div>
+    <div id="neg-therapy-note" class="meds-note" style="display:none">We are sorry that experience was not what it should have been. That matters, and it does not mean that support cannot be helpful. The program will take this into account in its recommendations.</div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q11&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q13">
+    <p class="section-label">Section 4 — past therapy experience</p>
+    <p class="question-title">If you have had therapy before, which approaches have you tried?</p>
+    <p class="multi-note">Choose all that apply.</p>
+    <div class="options">
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Cognitive Behavioural Therapy (CBT)</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">EMDR</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Somatic therapy</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Psychodynamic or psychoanalytic therapy</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Acceptance and Commitment Therapy (ACT)</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Compassion Focused Therapy</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Counselling or talk therapy, not sure of the type</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Medication only</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Other</button>
+      <button class="option" onclick="multi(&#39;q13&#39;,this)">Not sure</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q12&#39;)">Back</button><button class="btn btn-primary" id="n-q13" onclick="quizGoTo(&#39;s-q14&#39;)" disabled="">Next</button></div>
+  </div>
+
+  <div class="screen" id="s-q14">
+    <p class="section-label">Section 4 — past therapy experience</p>
+    <p class="question-title">For any therapies you have tried, how did they feel overall?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;helpful again&#39;)">Helpful and I would consider it again</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;something missing&#39;)">Partially helpful but something felt missing</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;too cognitive&#39;)">Too focused on thoughts and not enough on how I felt in my body</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;too intense&#39;)">Too intense or activating for where I was at the time</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;did not last&#39;)">Helpful at the time but the effects did not last</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;wrong therapist&#39;)">The relationship with the therapist did not feel right</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;not understood&#39;)">I did not feel understood</button>
+      <button class="option" onclick="pick(&#39;q14&#39;,this,&#39;not sure&#39;)">I am not sure</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q13&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q15">
+    <p class="section-label">Section 4 — past therapy experience</p>
+    <p class="question-title">Is there any type of support you feel strongly you do not want recommended?</p>
+    <p class="multi-note">Choose all that apply.</p>
+    <div class="options">
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">CBT</button>
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">EMDR</button>
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">Somatic approaches</button>
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">Medication</button>
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">None, I am open to anything</button>
+      <button class="option" onclick="multi(&#39;q15&#39;,this)">Other</button>
+    </div>
+    <p class="question-sub" style="margin-top:0.75rem;font-size:13px">The program will respect these preferences while noting where clinical evidence strongly supports a particular approach for your profile.</p>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q14&#39;)">Back</button><button class="btn btn-primary" id="n-q15" onclick="quizGoTo(&#39;s-q16&#39;)" disabled="">Next</button></div>
+  </div>
+
+  <!-- S5 Q16-Q17 -->
+  <div class="screen" id="s-q16">
+    <p class="section-label">Section 5 — medications</p>
+    <p class="question-title">Are you currently taking any medication prescribed for mental health, mood, sleep, or neurological conditions?</p>
+    <p class="question-sub">This platform does not provide any advice about medications. If you have questions, please speak with your prescribing doctor.</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q16&#39;,this,&#39;yes&#39;)">Yes</button>
+      <button class="option" onclick="pick(&#39;q16&#39;,this,&#39;no&#39;)">No</button>
+      <button class="option" onclick="pick(&#39;q16&#39;,this,&#39;prefer not&#39;)">I would prefer not to say</button>
+    </div>
+    <div id="meds-note" class="meds-note">You have indicated that you are currently taking prescribed medication. Before making any significant changes to your diet or lifestyle, please speak with your prescribing doctor. Your doctor can help you make any changes safely.</div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q15&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q17">
+    <p class="section-label">Section 5 — medications</p>
+    <p class="question-title">Has medication been helpful for you in the past?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q17&#39;,this,&#39;significantly&#39;)">Yes, significantly</button>
+      <button class="option" onclick="pick(&#39;q17&#39;,this,&#39;somewhat&#39;)">Somewhat</button>
+      <button class="option" onclick="pick(&#39;q17&#39;,this,&#39;not really&#39;)">Not really</button>
+      <button class="option" onclick="pick(&#39;q17&#39;,this,&#39;not tried&#39;)">I have not tried medication</button>
+      <button class="option" onclick="pick(&#39;q17&#39;,this,&#39;prefer not&#39;)">I would prefer not to say</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q16&#39;)">Back</button></div>
+  </div>
+
+  <!-- S6 Q18-Q21 (hidden for food flaggers) -->
+  <div class="screen" id="s-q18">
+    <p class="section-label">Section 6 — your body and brain foundations</p>
+    <p class="question-title">How would you describe your energy across a typical day?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q18&#39;,this,&#39;exhausted&#39;)">Consistently low, exhausted, or crashing</button>
+      <button class="option" onclick="pick(&#39;q18&#39;,this,&#39;highs and lows&#39;)">Unpredictable, with significant highs and lows</button>
+      <button class="option" onclick="pick(&#39;q18&#39;,this,&#39;reasonably steady&#39;)">Reasonably steady but not great</button>
+      <button class="option" onclick="pick(&#39;q18&#39;,this,&#39;generally good&#39;)">Generally good</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q17&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q19">
+    <p class="section-label">Section 6 — your body and brain foundations</p>
+    <p class="question-title">How is your sleep most nights?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q19&#39;,this,&#39;poor&#39;)">Poor and unrestorative most of the time</button>
+      <button class="option" onclick="pick(&#39;q19&#39;,this,&#39;variable&#39;)">Variable, sometimes okay and sometimes not</button>
+      <button class="option" onclick="pick(&#39;q19&#39;,this,&#39;mostly okay&#39;)">Mostly okay</button>
+      <button class="option" onclick="pick(&#39;q19&#39;,this,&#39;generally good&#39;)">Generally good</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q18&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q20">
+    <p class="section-label">Section 6 — your body and brain foundations</p>
+    <p class="question-title">How much do you move your body in a typical week?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q20&#39;,this,&#39;very little&#39;)">Very little</button>
+      <button class="option" onclick="pick(&#39;q20&#39;,this,&#39;light occasionally&#39;)">Light movement occasionally</button>
+      <button class="option" onclick="pick(&#39;q20&#39;,this,&#39;moderate regular&#39;)">Moderate regular movement</button>
+      <button class="option" onclick="pick(&#39;q20&#39;,this,&#39;consistent daily&#39;)">Consistent daily movement</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q19&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q21">
+    <p class="section-label">Section 6 — your body and brain foundations</p>
+    <p class="question-title">How much time do you spend outside in natural light on a typical day?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q21&#39;,this,&#39;almost none&#39;)">Almost none</button>
+      <button class="option" onclick="pick(&#39;q21&#39;,this,&#39;30 mins&#39;)">Less than thirty minutes</button>
+      <button class="option" onclick="pick(&#39;q21&#39;,this,&#39;hour&#39;)">Around an hour</button>
+      <button class="option" onclick="pick(&#39;q21&#39;,this,&#39;more than hour&#39;)">More than an hour</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q20&#39;)">Back</button></div>
+  </div>
+
+  <!-- S7 Q22-Q25 -->
+  <div class="screen" id="s-q22">
+    <p class="section-label">Section 7 — relationships and environment</p>
+    <p class="question-title">Do you have people in your life with whom you feel genuinely seen and understood?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q22&#39;,this,&#39;no&#39;)">No</button>
+      <button class="option" onclick="pick(&#39;q22&#39;,this,&#39;rarely&#39;)">Rarely</button>
+      <button class="option" onclick="pick(&#39;q22&#39;,this,&#39;sometimes&#39;)">Sometimes</button>
+      <button class="option" onclick="pick(&#39;q22&#39;,this,&#39;yes&#39;)">Yes</button>
+    </div>
+    <div class="nav"><button class="btn" id="back-q22" onclick="quizGoTo(&#39;s-q21&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q23">
+    <p class="section-label">Section 7 — relationships and environment</p>
+    <p class="question-title">How safe do your closest relationships feel?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q23&#39;,this,&#39;unsafe&#39;)">Mostly unsafe or unpredictable</button>
+      <button class="option" onclick="pick(&#39;q23&#39;,this,&#39;mixed&#39;)">Mixed, some safe and some not</button>
+      <button class="option" onclick="pick(&#39;q23&#39;,this,&#39;mostly safe&#39;)">Mostly safe</button>
+      <button class="option" onclick="pick(&#39;q23&#39;,this,&#39;very safe&#39;)">Very safe</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q22&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q24">
+    <p class="section-label">Section 7 — relationships and environment</p>
+    <p class="question-title">When you are struggling, is there someone you can turn to without fear of judgment?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q24&#39;,this,&#39;no&#39;)">No</button>
+      <button class="option" onclick="pick(&#39;q24&#39;,this,&#39;sometimes&#39;)">Sometimes</button>
+      <button class="option" onclick="pick(&#39;q24&#39;,this,&#39;usually&#39;)">Usually</button>
+      <button class="option" onclick="pick(&#39;q24&#39;,this,&#39;yes&#39;)">Yes</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q23&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q25">
+    <p class="section-label">Section 7 — relationships and environment</p>
+    <p class="question-title">How connected do you feel to your community or the world around you?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q25&#39;,this,&#39;very disconnected&#39;)">Very disconnected</button>
+      <button class="option" onclick="pick(&#39;q25&#39;,this,&#39;somewhat disconnected&#39;)">Somewhat disconnected</button>
+      <button class="option" onclick="pick(&#39;q25&#39;,this,&#39;reasonably connected&#39;)">Reasonably connected</button>
+      <button class="option" onclick="pick(&#39;q25&#39;,this,&#39;well connected&#39;)">Well connected</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q24&#39;)">Back</button></div>
+  </div>
+
+  <!-- S8 Q26-Q30 -->
+  <div class="screen" id="s-q26">
+    <p class="section-label">Section 8 — meaning, purpose and spiritual connection</p>
+    <p class="question-title">Do you have a sense of purpose or direction in your life right now?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q26&#39;,this,&#39;no troubles&#39;)">No, and its absence troubles me</button>
+      <button class="option" onclick="pick(&#39;q26&#39;,this,&#39;not really&#39;)">Not really</button>
+      <button class="option" onclick="pick(&#39;q26&#39;,this,&#39;somewhat&#39;)">Somewhat</button>
+      <button class="option" onclick="pick(&#39;q26&#39;,this,&#39;yes&#39;)">Yes, fairly clearly</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q25&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q27">
+    <p class="section-label">Section 8 — meaning, purpose and spiritual connection</p>
+    <p class="question-title">How often do you experience moments of genuine meaning, connection, or awe?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q27&#39;,this,&#39;rarely&#39;)">Rarely or never</button>
+      <button class="option" onclick="pick(&#39;q27&#39;,this,&#39;occasionally&#39;)">Occasionally</button>
+      <button class="option" onclick="pick(&#39;q27&#39;,this,&#39;fairly regularly&#39;)">Fairly regularly</button>
+      <button class="option" onclick="pick(&#39;q27&#39;,this,&#39;often&#39;)">Often</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q26&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q28">
+    <p class="section-label">Section 8 — meaning, purpose and spiritual connection</p>
+    <p class="question-title">Does your life feel aligned with what you most deeply value?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q28&#39;,this,&#39;not at all&#39;)">Not at all</button>
+      <button class="option" onclick="pick(&#39;q28&#39;,this,&#39;partially&#39;)">Partially</button>
+      <button class="option" onclick="pick(&#39;q28&#39;,this,&#39;mostly&#39;)">Mostly</button>
+      <button class="option" onclick="pick(&#39;q28&#39;,this,&#39;yes&#39;)">Yes</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q27&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q29">
+    <p class="section-label">Section 8 — meaning, purpose and spiritual connection</p>
+    <p class="question-title">Do you have a spiritual, contemplative, or meaning-making practice that feels important to you?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q29&#39;,this,&#39;no not drawn&#39;)">No, and I am not drawn to one</button>
+      <button class="option" onclick="pick(&#39;q29&#39;,this,&#39;curious&#39;)">No, but I am curious about this</button>
+      <button class="option" onclick="pick(&#39;q29&#39;,this,&#39;occasionally&#39;)">Yes, occasionally</button>
+      <button class="option" onclick="pick(&#39;q29&#39;,this,&#39;central&#39;)">Yes, it is central to my life</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q28&#39;)">Back</button></div>
+  </div>
+
+  <div class="screen" id="s-q30">
+    <p class="section-label">Section 8 — meaning, purpose and spiritual connection</p>
+    <p class="question-title">When you imagine the life you most want to be living, how far does it feel from where you are now?</p>
+    <div class="options">
+      <button class="option" onclick="pick(&#39;q30&#39;,this,&#39;unreachable&#39;)">Very far, it feels almost unreachable</button>
+      <button class="option" onclick="pick(&#39;q30&#39;,this,&#39;quite far&#39;)">Quite far</button>
+      <button class="option" onclick="pick(&#39;q30&#39;,this,&#39;somewhat close&#39;)">Somewhat close</button>
+      <button class="option" onclick="pick(&#39;q30&#39;,this,&#39;living it&#39;)">I am more or less living it</button>
+    </div>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q29&#39;)">Back</button></div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="screen" id="s-closing">
+    <p class="section-label">Almost there</p>
+    <h2 class="welcome-title">Thank you for taking the time to answer these questions honestly.</h2>
+    <p class="welcome-body">That in itself is an act of care toward yourself, and it matters.<br><br>Your personalised summary is being generated now. It will give you an immediate sense of where your profile sits across the four dimensions this platform addresses.<br><br>To receive your full personalised report, including your tailored program recommendations and your suggested starting points, please enter your email address below. Your report will arrive in your inbox within minutes.</p>
+    <input type="email" class="email-input" id="email-field" placeholder="Your email address" oninput="quizCheckEmail()">
+    <p class="privacy-note">Your information is never shared with third parties. You can unsubscribe at any time.</p>
+    <div class="nav"><button class="btn" onclick="quizGoTo(&#39;s-q30&#39;)">Back</button><button class="btn btn-primary" id="submit-btn" onclick="quizGoTo(&#39;s-thankyou&#39;)" disabled="">Send my report</button></div>
+  </div>
+
+  <!-- THANK YOU -->
+  <div class="screen" id="s-thankyou">
+    <svg class="check-icon" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="24" stroke="#1D9E75" stroke-width="1.5"></circle>
+      <polyline points="15,26 22,33 37,18" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+    </svg>
+    <h2 class="welcome-title">Your full report is on its way.</h2>
+    <p class="welcome-body">Check your inbox in the next few minutes. When you are ready, your program is here waiting for you.</p>
+  </div>
+
+</div>
+<script>
+var ans={};
+var foodFlagged=false;
+var allScreens=['s-welcome','s-q1','s-q2','s-q3','s-q4','s-q5','s-food-note','s-q6','s-q7','s-q8','s-q9','s-q10','s-q11','s-q12','s-q13','s-q14','s-q15','s-q16','s-q17','s-q18','s-q19','s-q20','s-q21','s-q22','s-q23','s-q24','s-q25','s-q26','s-q27','s-q28','s-q29','s-q30','s-closing','s-thankyou'];
+
+function quizGoTo(id){
+  allScreens.forEach(function(s){
+    var el=document.getElementById(s);
+    if(el)el.classList.remove('active');
+  });
+  var target=document.getElementById(id);
+  if(target){target.classList.add('active');}
+  quizUpdateProgress(id);
+  window.scrollTo(0,0);
+}
+
+function quizUpdateProgress(id){
+  var questionScreens=['s-q1','s-q2','s-q3','s-q4','s-q5','s-q6','s-q7','s-q8','s-q9','s-q10','s-q11','s-q12','s-q13','s-q14','s-q15','s-q16','s-q17','s-q18','s-q19','s-q20','s-q21','s-q22','s-q23','s-q24','s-q25','s-q26','s-q27','s-q28','s-q29','s-q30','s-closing'];
+  var idx=questionScreens.indexOf(id);
+  var pct=idx<0?0:Math.round((idx/questionScreens.length)*100);
+  document.getElementById('progress').style.width=pct+'%';
+}
+
+var nextMap={
+  'q1':'s-q2','q2':'s-q3','q4':'crisis','q5':'food',
+  'q6':'s-q7','q7':'s-q8','q8':'s-q9','q9':'s-q10','q10':'s-q11','q11':'s-q12',
+  'q12':'s-q13','q14':'s-q15','q16':'s-q17','q17':'section6',
+  'q18':'s-q19','q19':'s-q20','q20':'s-q21','q21':'s-q22',
+  'q22':'s-q23','q23':'s-q24','q24':'s-q25','q25':'s-q26',
+  'q26':'s-q27','q27':'s-q28','q28':'s-q29','q29':'s-q30','q30':'s-closing'
+};
+
+function pick(key,el,val){
+  ans[key]=val;
+  var container=el.closest('.options');
+  container.querySelectorAll('.option').forEach(function(o){o.classList.remove('selected');});
+  el.classList.add('selected');
+  if(key==='q2'){
+    var minor=document.getElementById('minor-note');
+    minor.style.display=val==='Under 18'?'block':'none';
+  }
+  if(key==='q12'){
+    document.getElementById('neg-therapy-note').style.display=val==='negative'?'block':'none';
+  }
+  if(key==='q16'){
+    document.getElementById('meds-note').style.display=val==='yes'?'block':'none';
+  }
+  var dest=nextMap[key];
+  if(!dest)return;
+  var delay=(key==='q2'&&val==='Under 18')||(key==='q12'&&val==='negative')||(key==='q16'&&val==='yes')?1800:380;
+  setTimeout(function(){
+    if(dest==='crisis'){quizCheckCrisis();}
+    else if(dest==='food'){quizCheckFood();}
+    else if(dest==='section6'){quizGoToSection6();}
+    else{goTo(dest);}
+  },delay);
+}
+
+function multi(key,el){
+  if(!ans[key])ans[key]=[];
+  el.classList.toggle('selected');
+  var val=el.textContent.trim();
+  if(el.classList.contains('selected')){
+    ans[key].push(val);
+  } else {
+    ans[key]=ans[key].filter(function(v){return v!==val;});
+  }
+  var btn=document.getElementById('n-'+key);
+  if(btn)btn.disabled=ans[key].length===0;
+}
+
+function quizCheckCrisis(){
+  var v=ans['q4'];
+  if(v==='Occasionally'||v==='Often'||v==='Most days'){
+    quizGoTo('s-crisis');
+  } else {
+    quizGoTo('s-q5');
+  }
+}
+
+function quizCheckFood(){
+  var v=ans['q5'];
+  if(v==='significant struggle'||v==='prefer not to say'){
+    foodFlagged=true;
+    quizGoTo('s-food-note');
+  } else {
+    foodFlagged=false;
+    quizGoTo('s-q6');
+  }
+}
+
+function quizGoToSection6(){
+  if(foodFlagged){
+    document.getElementById('back-q22').setAttribute('onclick',"quizGoTo('s-q17')");
+    quizGoTo('s-q22');
+  } else {
+    quizGoTo('s-q18');
+  }
+}
+
+function quizCheckEmail(){
+  var v=document.getElementById('email-field').value;
+  var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  document.getElementById('submit-btn').disabled=!valid;
+}
+</script>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Quiz modal styles */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#faf9f7;color:#1a1a1a;line-height:1.6}
+.quiz-wrap{max-width:660px;margin:0 auto;padding:2rem 1.25rem}
+.progress-bar{height:3px;background:#e5e2db;border-radius:2px;margin-bottom:2.5rem}
+.progress-fill{height:3px;background:#1D9E75;border-radius:2px;transition:width 0.4s ease}
+.screen{display:none}
+.screen.active{display:block}
+.section-label{font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem}
+.question-title{font-size:19px;font-weight:500;color:#1a1a1a;line-height:1.5;margin-bottom:0.5rem}
+.question-sub{font-size:14px;color:#666;margin-bottom:1.5rem;line-height:1.6}
+.multi-note{font-size:13px;color:#999;margin-bottom:1rem}
+.options{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem}
+.option{padding:13px 16px;border:1px solid #ddd;border-radius:8px;cursor:pointer;font-size:15px;color:#1a1a1a;background:#fff;transition:border-color 0.15s,background 0.15s;text-align:left;line-height:1.5}
+.option:hover{border-color:#1D9E75;background:#f0faf6}
+.option.selected{border-color:#1D9E75;background:#e1f5ee;color:#085041}
+.nav{display:flex;gap:10px;align-items:center;margin-top:0.5rem}
+.btn{padding:10px 22px;border-radius:8px;font-size:15px;cursor:pointer;border:1px solid #ddd;background:#fff;color:#1a1a1a;transition:background 0.15s}
+.btn:hover{background:#f5f5f5}
+.btn-primary{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.btn-primary:hover{background:#0F6E56;border-color:#0F6E56}
+.btn:disabled{opacity:0.35;cursor:not-allowed}
+.welcome-icon{width:52px;height:52px;margin-bottom:1.5rem;display:block}
+.compass{animation:wobble 3s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.welcome-title{font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;line-height:1.4}
+.welcome-body{font-size:15px;color:#555;line-height:1.85;margin-bottom:1.75rem}
+.crisis-box{background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.crisis-title{font-size:15px;font-weight:500;color:#991b1b;margin-bottom:0.75rem}
+.crisis-body{font-size:14px;color:#7f1d1d;line-height:1.75}
+.crisis-body a{color:#991b1b}
+.crisis-region{margin-bottom:0.75rem}
+.crisis-region strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;color:#b91c1c}
+.note-box{background:#f0faf6;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:14px;color:#374151;line-height:1.75}
+.note-box a{color:#0F6E56}
+.minor-note{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:0.75rem 1rem;font-size:13px;color:#78350f;margin-bottom:1rem;line-height:1.6;display:none}
+.meds-note{background:#f0faf6;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1rem;font-size:14px;color:#374151;line-height:1.75;display:none}
+.email-input{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:8px;font-size:15px;color:#1a1a1a;background:#fff;margin-bottom:1rem;outline:none;font-family:inherit}
+.email-input:focus{border-color:#1D9E75;box-shadow:0 0 0 3px #9FE1CB44}
+.privacy-note{font-size:13px;color:#999;margin-bottom:1.25rem;line-height:1.6}
+.check-icon{width:52px;height:52px;display:block;margin-bottom:1.5rem}
+</style>
+
+<script>
+var ans={};
+var foodFlagged=false;
+var allScreens=['s-welcome','s-q1','s-q2','s-q3','s-q4','s-q5','s-food-note','s-q6','s-q7','s-q8','s-q9','s-q10','s-q11','s-q12','s-q13','s-q14','s-q15','s-q16','s-q17','s-q18','s-q19','s-q20','s-q21','s-q22','s-q23','s-q24','s-q25','s-q26','s-q27','s-q28','s-q29','s-q30','s-closing','s-thankyou'];
+
+function quizGoTo(id){
+  allScreens.forEach(function(s){
+    var el=document.getElementById(s);
+    if(el)el.classList.remove('active');
+  });
+  var target=document.getElementById(id);
+  if(target){target.classList.add('active');}
+  quizUpdateProgress(id);
+  window.scrollTo(0,0);
+}
+
+function quizUpdateProgress(id){
+  var questionScreens=['s-q1','s-q2','s-q3','s-q4','s-q5','s-q6','s-q7','s-q8','s-q9','s-q10','s-q11','s-q12','s-q13','s-q14','s-q15','s-q16','s-q17','s-q18','s-q19','s-q20','s-q21','s-q22','s-q23','s-q24','s-q25','s-q26','s-q27','s-q28','s-q29','s-q30','s-closing'];
+  var idx=questionScreens.indexOf(id);
+  var pct=idx<0?0:Math.round((idx/questionScreens.length)*100);
+  document.getElementById('progress').style.width=pct+'%';
+}
+
+var nextMap={
+  'q1':'s-q2','q2':'s-q3','q4':'crisis','q5':'food',
+  'q6':'s-q7','q7':'s-q8','q8':'s-q9','q9':'s-q10','q10':'s-q11','q11':'s-q12',
+  'q12':'s-q13','q14':'s-q15','q16':'s-q17','q17':'section6',
+  'q18':'s-q19','q19':'s-q20','q20':'s-q21','q21':'s-q22',
+  'q22':'s-q23','q23':'s-q24','q24':'s-q25','q25':'s-q26',
+  'q26':'s-q27','q27':'s-q28','q28':'s-q29','q29':'s-q30','q30':'s-closing'
+};
+
+function pick(key,el,val){
+  ans[key]=val;
+  var container=el.closest('.options');
+  container.querySelectorAll('.option').forEach(function(o){o.classList.remove('selected');});
+  el.classList.add('selected');
+  if(key==='q2'){
+    var minor=document.getElementById('minor-note');
+    minor.style.display=val==='Under 18'?'block':'none';
+  }
+  if(key==='q12'){
+    document.getElementById('neg-therapy-note').style.display=val==='negative'?'block':'none';
+  }
+  if(key==='q16'){
+    document.getElementById('meds-note').style.display=val==='yes'?'block':'none';
+  }
+  var dest=nextMap[key];
+  if(!dest)return;
+  var delay=(key==='q2'&&val==='Under 18')||(key==='q12'&&val==='negative')||(key==='q16'&&val==='yes')?1800:380;
+  setTimeout(function(){
+    if(dest==='crisis'){quizCheckCrisis();}
+    else if(dest==='food'){quizCheckFood();}
+    else if(dest==='section6'){quizGoToSection6();}
+    else{goTo(dest);}
+  },delay);
+}
+
+function multi(key,el){
+  if(!ans[key])ans[key]=[];
+  el.classList.toggle('selected');
+  var val=el.textContent.trim();
+  if(el.classList.contains('selected')){
+    ans[key].push(val);
+  } else {
+    ans[key]=ans[key].filter(function(v){return v!==val;});
+  }
+  var btn=document.getElementById('n-'+key);
+  if(btn)btn.disabled=ans[key].length===0;
+}
+
+function quizCheckCrisis(){
+  var v=ans['q4'];
+  if(v==='Occasionally'||v==='Often'||v==='Most days'){
+    quizGoTo('s-crisis');
+  } else {
+    quizGoTo('s-q5');
+  }
+}
+
+function quizCheckFood(){
+  var v=ans['q5'];
+  if(v==='significant struggle'||v==='prefer not to say'){
+    foodFlagged=true;
+    quizGoTo('s-food-note');
+  } else {
+    foodFlagged=false;
+    quizGoTo('s-q6');
+  }
+}
+
+function quizGoToSection6(){
+  if(foodFlagged){
+    document.getElementById('back-q22').setAttribute('onclick',"quizGoTo('s-q17')");
+    quizGoTo('s-q22');
+  } else {
+    quizGoTo('s-q18');
+  }
+}
+
+function quizCheckEmail(){
+  var v=document.getElementById('email-field').value;
+  var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  document.getElementById('submit-btn').disabled=!valid;
+}
+
+function openQuiz(){
+  document.getElementById('quiz-modal').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeQuiz(){
+  document.getElementById('quiz-modal').style.display='none';
+  document.body.style.overflow='';
+}
+</script>
+</body></html>
