@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1809,17 +1808,27 @@
     <p class="welcome-body">That in itself is an act of care toward yourself, and it matters.<br><br>Your personalised summary is being generated now. It will give you an immediate sense of where your profile sits across the four dimensions this platform addresses.<br><br>To receive your full personalised report, including your tailored program recommendations and your suggested starting points, please enter your email address below. Your report will arrive in your inbox within minutes.</p>
     <input type="email" class="email-input" id="email-field" placeholder="Your email address" oninput="quizCheckEmail()"/>
     <p class="privacy-note">Your information is never shared with third parties. You can unsubscribe at any time.</p>
-    <div class="nav"><button class="btn" onclick="quizGoTo('s-q30')">Back</button><button class="btn btn-primary" id="submit-btn" onclick="quizGoTo('s-thankyou')" disabled>Send my report</button></div>
+    <div class="nav"><button class="btn" onclick="quizGoTo('s-q30')">Back</button><button class="btn btn-primary" id="submit-btn" onclick="generateResults()" disabled>Send my report</button></div>
   </div>
 
-  <!-- THANK YOU -->
+  <!-- RESULTS -->
   <div class="screen" id="s-thankyou">
-    <svg class="check-icon" viewBox="0 0 52 52" fill="none">
-      <circle cx="26" cy="26" r="24" stroke="#1D9E75" stroke-width="1.5"/>
-      <polyline points="15,26 22,33 37,18" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h2 class="welcome-title">Your full report is on its way.</h2>
-    <p class="welcome-body">Check your inbox in the next few minutes. When you are ready, your program is here waiting for you.</p>
+    <div id="results-loading" style="text-align:center;padding:3rem 1rem;">
+      <p style="font-size:15px;color:#555;line-height:1.8;margin-bottom:0.5rem">Generating your personalised profile...</p>
+      <p style="font-size:13px;color:#999">This takes just a moment.</p>
+    </div>
+    <div id="results-content" style="display:none;">
+      <p style="font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Your profile</p>
+      <h2 style="font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;line-height:1.4">Your immediate summary</h2>
+      <p style="font-size:14px;color:#666;margin-bottom:2rem;line-height:1.7">This gives you a sense of where you sit across the four dimensions. Your full personalised report is on its way to your inbox.</p>
+      <div id="dimension-results" style="display:flex;flex-direction:column;gap:16px;margin-bottom:2rem;"></div>
+      <div id="summary-text" style="background:#f0faf6;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:2rem;font-size:14px;color:#374151;line-height:1.8;"></div>
+      <div style="background:#faf9f7;border:1px solid #e5e2db;border-radius:8px;padding:1.25rem;margin-bottom:1.5rem;">
+        <p style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:0.5rem">Your full report is on its way.</p>
+        <p style="font-size:13px;color:#666;line-height:1.7">Check your inbox for your complete personalised recommendations and suggested starting points. It will arrive within a few minutes.</p>
+      </div>
+      <div id="safety-note" style="display:none;background:#f0faf6;border-left:3px solid #1D9E75;padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin-bottom:1.5rem;font-size:13px;color:#374151;line-height:1.7;"></div>
+    </div>
   </div>
 
 </div>
@@ -1974,6 +1983,53 @@ function quizCheckEmail(){
   var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   document.getElementById('submit-btn').disabled=!valid;
 }
+
+function generateResults(){
+  quizGoTo('s-thankyou');
+  document.getElementById('results-loading').style.display='block';
+  document.getElementById('results-content').style.display='none';
+
+  var nsMap={q6:{rarely:1,occasionally:2,'fairly often':3,'most of the time':4},q7:{days:1,hours:2,hour:3,quickly:4},q8:{'very often':1,sometimes:2,rarely:3,'almost never':4},q9:{'most of the time':1,sometimes:2,occasionally:3,rarely:4},q10:{unsafe:1,'sometimes uncomfortable':2,'generally okay':3,'safe place':4},q11:{significantly:1,somewhat:2,'a little':3,'not really':4}};
+  var bbMap={q18:{exhausted:1,'highs and lows':2,'reasonably steady':3,'generally good':4},q19:{poor:1,variable:2,'mostly okay':3,'generally good':4},q20:{'very little':1,'light occasionally':2,'moderate regular':3,'consistent daily':4},q21:{'almost none':1,'30 mins':2,hour:3,'more than hour':4}};
+  var relMap={q22:{no:1,rarely:2,sometimes:3,yes:4},q23:{unsafe:1,mixed:2,'mostly safe':3,'very safe':4},q24:{no:1,sometimes:2,usually:3,yes:4},q25:{'very disconnected':1,'somewhat disconnected':2,'reasonably connected':3,'well connected':4}};
+  var mpMap={q26:{'no troubles':1,'not really':2,somewhat:3,yes:4},q27:{rarely:1,occasionally:2,'fairly regularly':3,often:4},q28:{'not at all':1,partially:2,mostly:3,yes:4},q29:{'no not drawn':1,curious:2,occasionally:3,central:4},q30:{unreachable:1,'quite far':2,'somewhat close':3,'living it':4}};
+
+  function avg(map){var t=0,c=0;for(var q in map){if(ans[q]&&map[q][ans[q]]){t+=map[q][ans[q]];c++;}}return c>0?t/c:2.5;}
+
+  var ns=avg(nsMap);
+  var bb=foodFlagged?null:avg(bbMap);
+  var rel=avg(relMap);
+  var mp=avg(mpMap);
+
+  function lbl(s){
+    if(s<1.75)return{text:'This area needs priority attention',bg:'#fef2f2',bar:'#E24B4A',tc:'#991b1b'};
+    if(s<2.5)return{text:'Noticeable strain in this area',bg:'#fffbeb',bar:'#EF9F27',tc:'#78350f'};
+    if(s<3.25)return{text:'Some strain present in this area',bg:'#f0faf6',bar:'#1D9E75',tc:'#085041'};
+    return{text:'Reasonable foundations in place',bg:'#e1f5ee',bar:'#085041',tc:'#04342C'};
+  }
+
+  var dims=[{name:'Nervous system and history',score:ns},{name:'Body and brain foundations',score:bb},{name:'Relationships and environment',score:rel},{name:'Meaning and purpose',score:mp}];
+  var h='';
+  dims.forEach(function(d){
+    if(d.score===null){h+='<div style="padding:16px;background:#fafafa;border-radius:8px;border:1px solid #e5e2db;"><p style="font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:4px">'+d.name+'</p><p style="font-size:12px;color:#888">Excluded from your profile at your request</p></div>';return;}
+    var l=lbl(d.score);var w=Math.round((d.score/4)*100)+'%';
+    h+='<div style="padding:16px;background:'+l.bg+';border-radius:8px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><p style="font-size:13px;font-weight:500;color:#1a1a1a">'+d.name+'</p><span style="font-size:11px;color:'+l.tc+';font-weight:500">'+l.text+'</span></div><div style="height:4px;background:rgba(0,0,0,0.08);border-radius:2px;"><div style="height:4px;width:'+w+';background:'+l.bar+';border-radius:2px;"></div></div></div>';
+  });
+  document.getElementById('dimension-results').innerHTML=h;
+
+  var t='';
+  if(ns<2){t='Your profile suggests your nervous system has been carrying a significant load. The patterns you are describing are not character flaws. They are the traces of a system that has been working hard to keep you safe under difficult conditions. This is exactly where this program begins.';}
+  else if(ns<3){t='Your nervous system shows signs of strain that are affecting how you move through your days. You have more capacity than someone in acute distress, and that is meaningful. The work ahead is about recalibration. The program will help you understand what your system most needs.';}
+  else{t='Your nervous system profile suggests reasonable foundational stability. The work ahead for you is likely more about depth than regulation — deepening your relationship with yourself, your sense of meaning, and the quality of your connections.';}
+  if(rel<2){t+=' Your relational world appears to be a significant source of strain. The nervous system heals in connection with others, and isolation makes everything harder. The program addresses this dimension directly.';}
+  if(mp<2){t+=' The absence of a felt sense of purpose is registering strongly in your profile. The ache you may be feeling around this is not neurotic restlessness. It is a signal from a system that knows what it is built for and is not currently finding it.';}
+  document.getElementById('summary-text').innerHTML=t;
+
+  if(foodFlagged){document.getElementById('safety-note').style.display='block';document.getElementById('safety-note').innerHTML='As noted earlier, dietary content has been excluded from your profile. Your recommendations focus on the nervous system, relational, and meaning dimensions.';}
+
+  setTimeout(function(){document.getElementById('results-loading').style.display='none';document.getElementById('results-content').style.display='block';},1800);
+}
+
 function openQuiz(){document.getElementById("quiz-modal").style.display="block";document.body.style.overflow="hidden";}
 function closeQuiz(){document.getElementById("quiz-modal").style.display="none";document.body.style.overflow="";}
 </script>
