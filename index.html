@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2019,17 +2020,109 @@ function generateResults(){
   });
   document.getElementById('dimension-results').innerHTML=h;
 
-  var t='';
-  if(ns<2){t='Your profile suggests your nervous system has been carrying a significant load. The patterns you are describing are not character flaws. They are the traces of a system that has been working hard to keep you safe under difficult conditions. This is exactly where this program begins.';}
-  else if(ns<3){t='Your nervous system shows signs of strain that are affecting how you move through your days. You have more capacity than someone in acute distress, and that is meaningful. The work ahead is about recalibration. The program will help you understand what your system most needs.';}
-  else{t='Your nervous system profile suggests reasonable foundational stability. The work ahead for you is likely more about depth than regulation — deepening your relationship with yourself, your sense of meaning, and the quality of your connections.';}
-  if(rel<2){t+=' Your relational world appears to be a significant source of strain. The nervous system heals in connection with others, and isolation makes everything harder. The program addresses this dimension directly.';}
-  if(mp<2){t+=' The absence of a felt sense of purpose is registering strongly in your profile. The ache you may be feeling around this is not neurotic restlessness. It is a signal from a system that knows what it is built for and is not currently finding it.';}
-  document.getElementById('summary-text').innerHTML=t;
+  // Build prompt for Claude API
+  var reasonsMap={
+    anxiety:'struggling with anxiety',
+    depression:'struggling with depression', 
+    disconnected:'feeling disconnected from yourself or your life',
+    'different approach':'looking for a different approach to mental health',
+    ebook:'read the ebook and wanting to go deeper',
+    'generally well':'generally well but wanting to improve',
+    'something else':'something personal'
+  };
+  var reasons=ans['q3']?ans['q3'].map(function(r){return reasonsMap[r]||r;}).join(', '):'seeking support';
+
+  var therapyHistory=ans['q12']||'not indicated';
+  var therapyApproaches=ans['q13']?ans['q13'].join(', '):'none indicated';
+  var therapyFeel=ans['q14']||'not indicated';
+  var avoidTherapy=ans['q15']?ans['q15'].join(', '):'none';
+  var onMeds=ans['q16']==='yes';
+
+  var nsScore=Math.round(ns*10)/10;
+  var bbScore=bb!==null?Math.round(bb*10)/10:null;
+  var relScore=Math.round(rel*10)/10;
+  var mpScore=Math.round(mp*10)/10;
+
+  var prompt=`You are writing a free personalised report for someone who has just completed a mental health and wellbeing assessment called Finding Your True North, created by Jenny Flanery, a registered Australian psychologist with 20+ years of clinical experience, 14 years as an EMDR clinician, and specialist training in metabolic psychiatry.
+
+The platform is grounded in the understanding that suffering is not evidence of defectiveness but a signal from a nervous system doing its best under conditions it was never designed for. Radical self-forgiveness is the single most powerful reorganising force in psychological healing. The framework draws on trauma science, metabolic psychiatry (Chris Palmer, Georgia Ede), near-death experience research (the five consistencies), and relational neuroscience.
+
+Here is this person's profile:
+
+WHAT BROUGHT THEM HERE: ${reasons}
+
+DIMENSION SCORES (1=most distress, 4=thriving):
+- Nervous system and history: ${nsScore}/4
+- Body and brain foundations: ${bbScore!==null?bbScore+'/4':'excluded at their request (food/eating concerns flagged)'}
+- Relationships and environment: ${relScore}/4
+- Meaning and purpose: ${mpScore}/4
+
+THERAPY HISTORY: ${therapyHistory}
+APPROACHES TRIED: ${therapyApproaches}
+HOW THERAPY FELT: ${therapyFeel}
+APPROACHES TO AVOID: ${avoidTherapy}
+ON PRESCRIBED MEDICATION: ${onMeds?'yes':'no'}
+FOOD/EATING FLAGGED: ${foodFlagged?'yes - all dietary content excluded':'no'}
+
+Write a personalised report with exactly these five sections. Use warm, flowing, slightly literary prose. No bullet points. No em dashes. No short punchy sentences for effect. No overuse of contrast constructions. Write as Jenny would speak — with clinical authority and genuine warmth. Address the person directly as "you".
+
+SECTION 1 — OPENING (2-3 sentences): Acknowledge what brought them here and reflect their overall profile back to them with genuine warmth and accuracy. Do not be falsely positive. Be honest but kind.
+
+SECTION 2 — YOUR FOUR AREAS (one paragraph per dimension, 3-4 sentences each): Write a paragraph for each of the four dimensions. Speak directly to their score. For scores below 2: acknowledge the difficulty honestly and warmly, name what this level of struggle actually feels like, and connect it to the platform's framework (nervous system doing its best, not defectiveness). For scores 2-3: acknowledge the strain while noting the capacity they have. For scores above 3: acknowledge their foundations while pointing toward the depth work that may still be calling. Skip body and brain foundations if flagged.
+
+SECTION 3 — WHAT THE PATTERN SUGGESTS (2-3 sentences): Draw the dimensions together into a coherent picture. What is the underlying pattern across their profile? Speak to it directly.
+
+SECTION 4 — ONE THING TO KNOW (2-3 sentences): Offer one insight drawn from the platform's framework that reframes their experience. This should feel like something a thoughtful clinician would say that shifts perspective. Draw on the NDE research, nervous system science, or metabolic psychiatry as appropriate to their profile.
+
+SECTION 5 — WHAT COMES NEXT (2-3 sentences): Warm, honest bridge to the paid full report. Mention that the full report goes deeper into specific recommendations, therapy fit, and prioritised starting points. Do not be salesy. Sound like a clinician who genuinely cares.
+
+Write only the report content. No headings with colons or markdown. Use the section structure but write the headings as simple labels on their own line before each paragraph.`;
+
+  fetch("https://api.anthropic.com/v1/messages",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      model:"claude-sonnet-4-20250514",
+      max_tokens:1000,
+      messages:[{role:"user",content:prompt}]
+    })
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    var text='';
+    if(data.content&&data.content[0]&&data.content[0].text){
+      text=data.content[0].text;
+    } else {
+      text='Your profile has been generated. Thank you for completing the assessment.';
+    }
+    // Format the report text into paragraphs
+    var paras=text.split('\n\n').filter(function(p){return p.trim();});
+    var formatted='';
+    paras.forEach(function(p){
+      p=p.trim();
+      if(p.length<60&&!p.includes('.')){
+        // Section heading
+        formatted+='<p style="font-size:11px;color:#7a8c6e;letter-spacing:0.08em;text-transform:uppercase;margin:1.5rem 0 0.5rem;font-family:sans-serif">'+p+'</p>';
+      } else {
+        formatted+='<p style="font-size:15px;color:#374151;line-height:1.85;margin-bottom:1rem;font-family:Georgia,serif">'+p+'</p>';
+      }
+    });
+    document.getElementById('summary-text').innerHTML=formatted;
+    document.getElementById('results-loading').style.display='none';
+    document.getElementById('results-content').style.display='block';
+  })
+  .catch(function(){
+    // Fallback to static summary if API fails
+    var t='';
+    if(ns<2){t='Your profile suggests your nervous system has been carrying a significant load. The patterns you are describing are not character flaws. They are the traces of a system that has been working hard to keep you safe under difficult conditions.';}
+    else if(ns<3){t='Your nervous system shows signs of strain that are affecting how you move through your days. The work ahead is about recalibration and understanding what your system most needs.';}
+    else{t='Your nervous system profile suggests reasonable foundational stability. The work ahead is likely more about depth than regulation.';}
+    document.getElementById('summary-text').innerHTML='<p style="font-size:15px;color:#374151;line-height:1.85;font-family:Georgia,serif">'+t+'</p>';
+    document.getElementById('results-loading').style.display='none';
+    document.getElementById('results-content').style.display='block';
+  });
 
   if(foodFlagged){document.getElementById('safety-note').style.display='block';document.getElementById('safety-note').innerHTML='As noted earlier, dietary content has been excluded from your profile. Your recommendations focus on the nervous system, relational, and meaning dimensions.';}
-
-  setTimeout(function(){document.getElementById('results-loading').style.display='none';document.getElementById('results-content').style.display='block';},1800);
 }
 
 function openQuiz(){document.getElementById("quiz-modal").style.display="block";document.body.style.overflow="hidden";}
