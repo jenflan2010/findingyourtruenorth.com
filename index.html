@@ -2078,23 +2078,14 @@ SECTION 5 — WHAT COMES NEXT (2-3 sentences): Warm, honest bridge to the paid f
 
 Write only the report content. No headings with colons or markdown. Use the section structure but write the headings as simple labels on their own line before each paragraph.`;
 
-  fetch("https://api.anthropic.com/v1/messages",{
+  fetch("/.netlify/functions/generate-report",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      model:"claude-sonnet-4-20250514",
-      max_tokens:1000,
-      messages:[{role:"user",content:prompt}]
-    })
+body:JSON.stringify({prompt:prompt})
   })
   .then(function(r){return r.json();})
   .then(function(data){
-    var text='';
-    if(data.content&&data.content[0]&&data.content[0].text){
-      text=data.content[0].text;
-    } else {
-      text='Your profile has been generated. Thank you for completing the assessment.';
-    }
+    var text=data.text||'Your profile has been generated. Thank you for completing the assessment.';
     // Format the report text into paragraphs
     var paras=text.split('\n\n').filter(function(p){return p.trim();});
     var formatted='';
