@@ -2072,20 +2072,29 @@ SECTION 2 — YOUR FOUR AREAS (one paragraph per dimension, 3-4 sentences each):
 
 SECTION 3 — WHAT THE PATTERN SUGGESTS (2-3 sentences): Draw the dimensions together into a coherent picture. What is the underlying pattern across their profile? Speak to it directly.
 
-SECTION 4 — ONE THING TO KNOW (2-3 sentences): Offer one insight drawn from the platform's framework that reframes their experience. This should feel like something a thoughtful clinician would say that shifts perspective. Draw on the NDE research, nervous system science, or metabolic psychiatry as appropriate to their profile.
+SECTION 4 — ONE THING TO KNOW (2-3 sentences): Offer one clinical insight that genuinely reframes their experience. Draw on nervous system science, relational neuroscience, or metabolic psychiatry as appropriate to their profile. Do not reference near-death experience research directly. The ideas it points toward, that suffering signals disconnection rather than defectiveness, that the nervous system orients naturally toward coherence and safety, can be expressed in clinical human terms without naming the source. This section should feel like something a thoughtful clinician would say that shifts a person's relationship to their own pain.
 
 SECTION 5 — WHAT COMES NEXT (2-3 sentences): Warm, honest bridge to the paid full report. Mention that the full report goes deeper into specific recommendations, therapy fit, and prioritised starting points. Do not be salesy. Sound like a clinician who genuinely cares.
 
 Write only the report content. No headings with colons or markdown. Use the section structure but write the headings as simple labels on their own line before each paragraph.`;
 
-  fetch("/.netlify/functions/generate-report",{
+  fetch("https://api.anthropic.com/v1/messages",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-body:JSON.stringify({prompt:prompt})
+    body:JSON.stringify({
+      model:"claude-sonnet-4-20250514",
+      max_tokens:1000,
+      messages:[{role:"user",content:prompt}]
+    })
   })
   .then(function(r){return r.json();})
   .then(function(data){
-    var text=data.text||'Your profile has been generated. Thank you for completing the assessment.';
+    var text='';
+    if(data.content&&data.content[0]&&data.content[0].text){
+      text=data.content[0].text;
+    } else {
+      text='Your profile has been generated. Thank you for completing the assessment.';
+    }
     // Format the report text into paragraphs
     var paras=text.split('\n\n').filter(function(p){return p.trim();});
     var formatted='';
